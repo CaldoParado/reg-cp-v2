@@ -1,0 +1,148 @@
+@page { size: auto;  margin: 0mm; }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --back-color: #ddd;
+  --inset-shadow: inset -5px 5px 5px #bbbb, inset 5px -5px 5px #fff5;
+  --flat-shadow: -5px 5px 5px #bbbb, 5px -5px 5px #fff5;
+  --border-radius: 5px;
+}
+
+body>* {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.flat {
+    border: none;
+    border-radius: var(--border-radius);
+    background: var(--back-color);
+    box-shadow: var(--flat-shadow);
+    font-weight: bold;
+    /* font-size: .8rem; */
+}
+.flat:active {
+    box-shadow: var(--inset-shadow);
+}
+
+#ticket {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    display: none;
+    visibility: hidden;
+}
+
+@page {
+    size: 80mm auto;
+    margin: 0mm 0mm 0mm 0mm;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    #ticket,
+    #ticket * {
+        /* display: block; */
+        visibility: visible;
+    }
+    #ticket {
+        display: inline;
+        /* display: block; */
+        width: 410px;
+        max-width: 410px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    #ticket-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        height: min-content;
+    }
+
+    td,
+    tr {
+        text-align: center;
+    }
+
+    #ticket-footer {
+        width: 100%;
+    }
+    .ticket-footer-info {
+        width: 50%;
+        text-align: end;
+        /* border-bottom: 1px solid black; */
+    }
+    .ticket-footer-item > strong {
+        text-align: right;
+    }
+}
+
+button{
+  border: none;
+}
+/* button:active{
+  box-shadow: var(--inset-shadow);
+  border: 2px solid white;
+    transition: all ease-in-out 2s;
+
+} */
+
+#layout {
+  background-color: #ddd;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+#side-bar {
+  width: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#products {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: calc(100% - 460px);
+}
+
+#options {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#control {
+  width: 235px;
+}
